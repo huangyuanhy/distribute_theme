@@ -19,7 +19,7 @@ import com.taotao.service.ItemService;
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
-	
+	//查阅商品详情
 	@ResponseBody
 	@RequestMapping(path="/item/list",method=RequestMethod.GET)
 	//localhost:8081/item/lsit/getItemList?page=1&rows=30
