@@ -1,19 +1,16 @@
 package com.taotao.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-/**
- * 
- * @author pc
- *
- */
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TAotaoresult;
+import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 @Controller
 public class ItemController {
@@ -25,5 +22,12 @@ public class ItemController {
 	//localhost:8081/item/lsit/getItemList?page=1&rows=30
 	public EasyUIDataGridResult getItemList(Integer page,@RequestParam(value="rows") Integer pageSize) {
 		return itemService.getItemList(page, pageSize);
+	}
+	
+	//新增商品
+	@ResponseBody
+	@RequestMapping("/item/save")
+	public TAotaoresult createItem(TbItem item) {
+		return itemService.createItem(item);
 	}
 }

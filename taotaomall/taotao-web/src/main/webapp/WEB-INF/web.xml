@@ -40,7 +40,9 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>taotao-manager-web</servlet-name>
-		<!--  拦截所有的请求 -->
+		<!-- / 用于处理所有其他Servlet都不处理的访问请求 ，拦截所有静态资源的请求  ,会覆盖DefaultServlet，。
+		不包括转发的jsp，jsp 由tomcat的web.xml专门配置了jspServlet 处理-->
+		<!-- /* 是错误的配置，会覆盖 jspServlet 即会拦截jsp-->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   

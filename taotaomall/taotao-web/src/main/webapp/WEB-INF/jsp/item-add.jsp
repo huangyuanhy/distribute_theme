@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="/js/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
+<!-- <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script> -->
+<script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <div style="padding:10px 10px 10px 10px">
 	<form id="itemAddForm" class="itemForm" method="post">
@@ -68,7 +69,8 @@
 	//页面初始化完毕后执行此方法
 	$(function(){
 		//创建富文本编辑器
-		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
+		//itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
+		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]",TT.kingEditorParams);
 		//初始化类目选择和图片上传器
 		TAOTAO.init({fun:function(node){
 			//根据商品的分类id取商品 的规格模板，生成规格信息。第四天内容。
