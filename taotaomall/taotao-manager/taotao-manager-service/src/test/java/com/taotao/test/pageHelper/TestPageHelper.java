@@ -1,4 +1,4 @@
-package com.taotao.test.pageHelper;
+/*package com.taotao.test.pageHelper;
 
 import java.util.List;
 
@@ -38,3 +38,4 @@ public class TestPageHelper {
 		
 	}
 }
+*/

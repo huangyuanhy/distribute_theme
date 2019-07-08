@@ -14,10 +14,12 @@
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="taotao-manager" />
-	<dubbo:registry protocol="zookeeper" address="192.168.1.110:2181" />
+	<dubbo:registry protocol="zookeeper" address="47.106.39.238:2181" />
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.taotao.service.TestService" ref="testServiceImpl" />
-	<dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" />
+	<dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="30000"/>
+	<dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl" timeout="30000"/>
+	<dubbo:service interface="com.taotao.service.PictureService" ref="pictureUploadImpl" timeout="30000"/>
 </beans>
