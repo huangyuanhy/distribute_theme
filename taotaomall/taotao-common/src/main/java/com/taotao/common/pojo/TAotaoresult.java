@@ -1,6 +1,8 @@
 package com.taotao.common.pojo;
 
-public class TAotaoresult {
+import java.io.Serializable;
+
+public class TAotaoresult implements Serializable{
 private Integer status;
 private String msg;
 private Object data;

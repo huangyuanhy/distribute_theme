@@ -48,4 +48,14 @@
 	<dubbo:reference check="false"
 		interface="com.taotao.service.PictureService" id="picService"
 		timeout="30000" />
+	<dubbo:reference check="false"
+		interface="com.taotao.content.service.ContentCategoryService" id="contentCategoryService"
+		timeout="300000" />
+	<dubbo:reference check="false"
+		interface="com.taotao.content.service.ContentService" id="contentService"
+		timeout="300000" />
+		<dubbo:reference check="false"
+		interface="com.taotao.search.service.SearchService" id="sontentService"
+		timeout="300000" />
+		
 </beans>

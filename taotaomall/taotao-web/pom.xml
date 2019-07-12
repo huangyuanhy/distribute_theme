@@ -12,10 +12,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
+	<dependency>
+			<groupId>com.taotao</groupId>
+			<artifactId>taotao-search-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- manager-interface接口 -->
 		<dependency>
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-manager-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+			<dependency>
+			<groupId>com.taotao</groupId>
+			<artifactId>taotao-content-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- Spring -->
@@ -122,6 +133,12 @@
 					<path>/</path>
 				</configuration>
 			</plugin>
+				<!-- 配置打包时跳过测试 ，首次配置使用的时候会自动联网进行下载 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.12.4</version>
+				</plugin>
 		</plugins>
 	</build>
 </project>

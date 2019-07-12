@@ -182,11 +182,11 @@ public class FtpUtils {
 	   //判断ftp服务器文件是否存在
 	   public  boolean  existFile(String path) throws IOException {
 	       boolean flag = false;
-	       FTPFile[] ftpFileArr = ftpClient.listFiles(path);
+	       /*FTPFile[] ftpFileArr = ftpClient.listFiles(path);
 	       if (ftpFileArr.length > 0) {
 	           flag = true;
-	       }
-	       return flag;
+	       }*/
+	       return true;
 	   }
 
 	   //创建目录

@@ -23,7 +23,7 @@ var TT = TAOTAO = {
 	// 编辑器参数
 	kingEditorParams : {
 		//指定上传文件参数名称
-		filePostName  : "uploadFile",
+		filePostName  : "uploadFile", //相当于form的input type="file" name="uploadFile"
 		//指定上传文件请求的url。
 		uploadJson : '/pic/upload',
 		//上传类型，分别为image、flash、media、file
@@ -64,26 +64,40 @@ var TT = TAOTAO = {
     },
     // 初始化图片上传组件
     initPicUpload : function(data){
+    	//获取图片的标签数组遍历
     	$(".picFileUpload").each(function(i,e){
+    		//转成query的对象
     		var _ele = $(e);
+    		//找兄弟节点("div.pics")  删除掉
     		_ele.siblings("div.pics").remove();
+    		//在a标签后插入内容<div class="pics"><ul></ul></div>
     		_ele.after('<div class="pics"><ul></ul></div>');
     		
-        	//给“上传图片按钮”绑定click事件
+        	//给“上传图片按钮”绑定click事件  当点击商品图片的按钮时触发
         	$(e).click(function(){
+        		//$(this) 就是a标签  找到这个标签所在的form表单。就相当于使用$("#itemAddForm")
         		var form = $(this).parentsUntil("form").parent("form");
         		//打开图片上传窗口
         		KindEditor.editor(TT.kingEditorParams).loadPlugin('multiimage',function(){
         			var editor = this;
         			editor.plugin.multiImageDialog({
+        				//当点击“全部插入”的按钮的时候触发
 						clickFn : function(urlList) {
-							var imgArray = [];
+							var imgArray = [];//定义一个数组
+							//遍历
 							KindEditor.each(urlList, function(i, data) {
+								//将数据添加到数组中
+								//data.url：就是返回回来的图片的地址
 								imgArray.push(data.url);
 								// 回显图片
+								//form.find(".pics ul") 获取元素对象 class为.pics 下的ul的标签对象：<div class="pics"><ul></ul></div>
 								form.find(".pics ul").append("<li><a href='"+data.url+"' target='_blank'><img src='"+data.url+"' width='80' height='50' /></a></li>");
 							});
+							//从表单中获取image标签所在的元素
+							//imgArray.join(",")  将数组进行转成字符串 而且是以逗号分隔：比如：a.jpg,b.jpg,c.jpg
+							//将图片的地址 设置到image标签中
 							form.find("[name=image]").val(imgArray.join(","));
+							//隐藏窗口
 							editor.hideDialog();
 						}
 					});
@@ -94,16 +108,21 @@ var TT = TAOTAO = {
     
     // 初始化选择类目组件
     initItemCat : function(data){
+    	//$(".selectItemCat") 类选择器 ，执行遍历
     	$(".selectItemCat").each(function(i,e){
+    		//将元素变成jquery的对象
     		var _ele = $(e);
     		if(data && data.cid){
     			_ele.after("<span style='margin-left:10px;'>"+data.cid+"</span>");
     		}else{
+    			//在jquery对象的元素后插入内容
     			_ele.after("<span style='margin-left:10px;'></span>");
     		}
+    		//添加对元素的selectItemCat 所在的元素绑定点击事件
     		_ele.unbind('click').click(function(){
-    			//创建一个div标签
+    			//创建一个div标签 在div中添加了ul标签  <div><ul></ul></div>
     			$("<div>").css({padding:"5px"}).html("<ul>")
+    			//创建一个窗口 打开 
     			.window({
     				width:'500',
     			    height:"450",
@@ -111,9 +130,13 @@ var TT = TAOTAO = {
     			    closed:true,
     			    iconCls:'icon-save',
     			    title:'选择类目',
+    			    //在窗口被打开的时候触发以下的逻辑
     			    onOpen : function(){
+    			    	//获取当前的窗口
     			    	var _win = this;
+    			    	//在当前的窗口中的ul标签下创建一课树
     			    	$("ul",_win).tree({
+    			    		//异步发送请求 从服务端获取数据的URL
     			    		url:'/item/cat/list',
     			    		animate:true,
     			    		onClick : function(node){
@@ -235,6 +258,7 @@ var TT = TAOTAO = {
 						var input = _self.siblings("input");
 						input.parent().find("img").remove();
 						input.val(url);
+						console.log('sfudsfsf',url)
 						input.after("<a href='"+url+"' target='_blank'><img src='"+url+"' width='80' height='50'/></a>");
 						this.hideDialog();
 					}
