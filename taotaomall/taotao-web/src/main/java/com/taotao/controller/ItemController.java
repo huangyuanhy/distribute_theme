@@ -27,7 +27,7 @@ public class ItemController {
 	//新增商品
 	@ResponseBody
 	@RequestMapping("/item/save")
-	public TAotaoresult createItem(TbItem item) {
-		return itemService.createItem(item);
+	public TAotaoresult createItem(TbItem item,String desc) {
+		return itemService.createItem(item,desc);
 	}
 }

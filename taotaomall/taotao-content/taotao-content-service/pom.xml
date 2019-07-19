@@ -10,13 +10,7 @@
   
   
   <dependencies>
- <!-- 分词器 -->
- <!--  
-  <dependency>
-    <groupId>com.github.magese</groupId>
-    <artifactId>ik-analyzer</artifactId>
-    <version>8.1.0</version>
-</dependency> -->
+ 
 		<!-- 添加接口的依赖 -->
 		<dependency>
 			<groupId>com.taotao</groupId>

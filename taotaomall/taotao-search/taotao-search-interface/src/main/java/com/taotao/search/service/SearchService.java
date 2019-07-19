@@ -7,4 +7,6 @@ public interface SearchService {
  public TAotaoresult importAllSearchContent() throws Exception;
 
 SearchResult search(String queryString, Integer page, Integer rows) throws Exception;
+
+public TAotaoresult updateSearchItemById(Long itemId);
 }

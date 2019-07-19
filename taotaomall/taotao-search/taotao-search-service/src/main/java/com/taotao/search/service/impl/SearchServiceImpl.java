@@ -92,4 +92,15 @@ public class SearchServiceImpl implements SearchService {
 		return search;
 	}
 
+	@Override
+	public TAotaoresult updateSearchItemById(Long itemId) {
+		try {
+			return searchDao.updateItemById(itemId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
