@@ -1,1 +1,5 @@
-/com/
+.classpath
+.gitignore
+./jsdscope
+**/.settings/**
+**/target/**

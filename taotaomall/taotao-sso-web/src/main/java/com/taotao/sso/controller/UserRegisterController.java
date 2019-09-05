@@ -24,7 +24,7 @@ public class UserRegisterController {
 	 */
 	@RequestMapping(value="/user/check/{param}/{type}",method=RequestMethod.GET)
 	@ResponseBody
-	public TAotaoresult checkData(@PathVariable String param,@PathVariable Integer type){
+	public TAotaoresult checkData(@PathVariable(value="param") String param,@PathVariable(value ="type") Integer type){
 		//1.引入服务
 		//2.注入
 		//3.调用

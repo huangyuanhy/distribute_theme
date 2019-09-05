@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class EasyUIDataGridResult implements Serializable{
 
+	private static final long serialVersionUID = 1L;
  
 	public Integer getTotal() {
 		return total;
@@ -22,7 +23,6 @@ public class EasyUIDataGridResult implements Serializable{
 	public void setRows(List<?> rows) {
 		this.rows = rows;
 	}
-	private static final long serialVersionUID = 1L;
 	//总记录数
 	private Integer total;
 	//记录的具体信息

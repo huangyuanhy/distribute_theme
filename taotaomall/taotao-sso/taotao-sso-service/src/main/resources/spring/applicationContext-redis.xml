@@ -9,8 +9,8 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	<!-- 配置单机版的 -->
 	<bean class="redis.clients.jedis.JedisPool">
-		<constructor-arg name="host" value="192.168.25.153"></constructor-arg>
-		<constructor-arg name="port" value="6379"></constructor-arg>
+		<constructor-arg name="host" value="47.106.39.238"></constructor-arg>
+		<constructor-arg name="port" value="6380"></constructor-arg>
 	</bean>
 	<bean class="com.taotao.sso.jedis.JedisClientPool"></bean>
 	<!-- 配置集群版 -->

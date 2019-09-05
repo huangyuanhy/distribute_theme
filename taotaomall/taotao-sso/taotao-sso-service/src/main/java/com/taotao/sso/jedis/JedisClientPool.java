@@ -9,7 +9,6 @@ public class JedisClientPool implements JedisClient {
 	
 	@Autowired
 	private JedisPool jedisPool;
-
 	@Override
 	public String set(String key, String value) {
 		Jedis jedis = jedisPool.getResource();
